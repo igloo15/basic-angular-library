@@ -1,0 +1,33 @@
+# Test against the latest version of this Node.js version
+environment:
+  nodejs_version: "11"
+
+# Install scripts. (runs after repo cloning)
+install:
+  # Get the latest stable version of Node.js or io.js
+  - ps: Install-Product node $env:nodejs_version
+  # install modules
+  - npm install
+
+build_script:
+  - npm run deploy
+
+after_build:
+  - ps: $root = Resolve-Path .\dist\dicegame; [IO.Directory]::GetFiles($root.Path, '*.*', 'AllDirectories') | % { Push-AppveyorArtifact $_ -FileName $_.Substring($root.Path.Length + 1) -DeploymentName to-publish }
+
+deploy:
+  provider: FTP
+  protocol: sftp
+  host: igloo15.com
+  username: igloo15
+  password:
+    secure: 0HG1zILT/P1jlh4uy0f8FA==
+  folder: /games.igloo15.com/dicegame
+
+branches:
+  # Whitelist
+  only:
+    - develop
+    - master
+    - /release/.*/
+    - /hotfix/.*/

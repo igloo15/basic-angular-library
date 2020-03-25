@@ -1,0 +1,18 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div fxFlexFill fxLayout="column" fxLayoutGap="2vh" id="main-content">
+  <div class="game-title">Ur Game</div>
+  <div class="player-turn-subtitle" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="3vw" *ngIf="playerService.currentPlayer">
+    <span>Current Turn : <b>{{this.playerService.looper.turnNumber}}</b></span>  
+    <span>Current Player : <b>Player {{this.playerService.currentPlayer.name}}</b></span>
+  </div>
+  <div fxLayout="row" *ngIf="playerService.rightPlayer">
+      <dg-player-table fxFlex="25" [player]="playerService.leftPlayer" fxFlexFill></dg-player-table>
+      <dg-game-table fxFlex="50"></dg-game-table>
+      <dg-player-table fxFlex="25" [player]="playerService.rightPlayer" fxFlexFill></dg-player-table>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center">
+      <button mat-raised-button (click)="nextTurn()" [disabled]="!allowNextTurn || boardService.isMoveAvailable" color="primary">Next Turn</button>
+      <button mat-raised-button (click)="openDiceRoller()" [disabled]="!allowRolling" color="accent">Roll</button>
+  </div>
+</div>
