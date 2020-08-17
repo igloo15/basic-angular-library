@@ -1,73 +1,80 @@
 {
-  "name": "@igloo15/baseturngame",
-  "version": "0.1.0",
+  "name": "@igloo15/basic-angular-lib",
+  "version": "0.2.0-dev.1",
   "description": "A game of taking turns",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf dist",
     "serve": "ng serve",
     "update:version": "node ./configs/update-version.js",
+    "docs": "typedoc --theme markdown --readme docs/README.md --out docs/api src",
+    "copy:readme": "cpx ./README.md ./dist/lib",
+    "git:tag": "cross-var git tag v$npm_package_version",
     "build:lib": "ng build lib",
     "build:lib:prod": "ng build lib --prod",
     "build:lib:watch": "ng build lib --watch",
     "build:app": "ng build app",
     "build:app:prod": "ng build --prod",
-    "build:all": "npm run update:version && npm run build:lib && npm run build:app:prod",
-    "deploy": "npm run build:all && npm run git:tag && npm publish --access=public",
+    "build:all": "npm run clean && npm run update:version && npm run build:lib:prod && npm run build:app:prod && npm run copy:readme",
+    "build": "npm run build:all",
+    "deploy:test": "npm run build:all && npm pack --dry-run ./dist/lib",
+    "deploy": "npm run build && npm run git:tag && npm publish --access=public ./dist/lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/igloo15/baseturngame.git"
+    "url": "git+https://github.com/igloo15/base-angular-lib.git"
   },
   "keywords": [
-    "game",
-    "typescript",
-    "d3"
+    "typescript"
   ],
   "author": {
     "name": "igloo15"
   },
   "license": "MIT",
-  "private": true,
   "bugs": {
-    "url": "https://github.com/igloo15/baseturngame/issues"
+    "url": "https://github.com/igloo15/basic-angular-library/issues"
   },
-  "homepage": "https://github.com/igloo15/baseturngame#readme",
+  "homepage": "https://github.com/igloo15/basic-angular-library#readme",
   "readme": "ERROR: No README data found!",
-  "_id": "@igloo15/baseturngame@0.1.0",
+  "_id": "@igloo15/basic-angular-lib@0.2.0-dev.1",
   "dependencies": {
-    "@angular/animations": "^9.0.7",
-    "@angular/cdk": "^9.1.3",
-    "@angular/common": "~9.0.7",
-    "@angular/compiler": "~9.0.7",
-    "@angular/core": "~9.0.7",
+    "@angular/animations": "^9.1.0",
+    "@angular/cdk": "^9.2.0",
+    "@angular/common": "~9.1.0",
+    "@angular/compiler": "~9.1.0",
+    "@angular/core": "~9.1.0",
     "@angular/flex-layout": "^9.0.0-beta.29",
-    "@angular/forms": "~9.0.7",
-    "@angular/material": "^9.1.3",
-    "@angular/platform-browser": "~9.0.7",
-    "@angular/platform-browser-dynamic": "~9.0.7",
-    "@angular/router": "~9.0.7",
+    "@angular/forms": "~9.1.0",
+    "@angular/material": "^9.2.0",
+    "@angular/platform-browser": "~9.1.0",
+    "@angular/platform-browser-dynamic": "~9.1.0",
+    "@angular/router": "~9.1.0",
     "core-js": "^2.6.11",
-    "rxjs": "~6.5.3",
+    "rxjs": "~6.5.4",
     "tslib": "^1.11.1",
     "zone.js": "~0.10.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.900.7",
-    "@angular-devkit/build-ng-packagr": "~0.900.7",
-    "@angular/cli": "~9.0.7",
-    "@angular/compiler-cli": "~9.0.7",
-    "@angular/language-service": "~9.0.7",
-    "@types/node": "~13.9.3",
+    "@angular-devkit/build-angular": "^0.901.0",
+    "@angular-devkit/build-ng-packagr": "~0.901.0",
+    "@angular/cli": "~9.1.0",
+    "@angular/compiler-cli": "~9.1.0",
+    "@angular/language-service": "~9.1.0",
+    "@types/node": "~12.12.31",
     "codelyzer": "~5.2.1",
+    "cpx": "^1.5.0",
+    "cross-var": "^1.1.0",
     "git-describe": "^4.0.4",
-    "ng-packagr": "^9.0.3",
+    "ng-packagr": "^9.1.0",
     "read-pkg": "^5.2.0",
+    "rimraf": "^3.0.2",
     "ts-node": "~8.8.1",
     "tsickle": "^0.38.1",
     "tslint": "^6.1.0",
+    "typedoc": "^0.17.3",
     "typescript": "~3.7.5",
     "write-pkg": "^4.0.0"
   },
-  "date": "Wed Mar 25 2020"
+  "date": "Thu Mar 26 2020"
 }

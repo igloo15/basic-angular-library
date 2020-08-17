@@ -1,8 +1,26 @@
 {
   "name": "@igloo15/base-angular-lib",
-  "version": "0.0.1",
+  "version": "0.2.0-dev.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igloo15/base-angular-lib.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": {
+    "name": "igloo15"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/igloo15/basic-angular-library/issues"
+  },
+  "homepage": "https://github.com/igloo15/basic-angular-library#readme",
   "peerDependencies": {
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "@igloo15/base-angular-lib@0.2.0-dev.1",
+  "date": "Thu Mar 26 2020"
 }

@@ -4,6 +4,7 @@ const readPkg = require('read-pkg');
 
 const gitInfo = gitDescribeSync(__dirname+"/..");
 const pkg = readPkg.sync();
+const libpkg = readPkg.sync({cwd: __dirname+"/../src/lib"});
 
 let version = gitInfo.semver.version;
 let dateString = `${new Date().toDateString()}`;
@@ -16,5 +17,8 @@ console.log(dateString);
 
 pkg.version = version;
 pkg.date = dateString;
+libpkg.version = version;
+libpkg.date = dateString;
 
 writePkg.sync(__dirname+"/..", pkg);
+writePkg.sync(__dirname+"/../src/lib", libpkg);

@@ -19,6 +19,11 @@
           "options": {
             "tsConfig": "src/lib/tsconfig.app.json",
             "project": "src/lib/ng-package.json"
+          },
+          "configurations": {
+            "production":{
+              
+            }
           }
         },
         "lint": {
