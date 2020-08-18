@@ -1,6 +1,6 @@
 {
   "name": "@igloo15/base-angular-lib",
-  "version": "0.2.0-dev.1",
+  "version": "0.3.0-dev.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/igloo15/base-angular-lib.git"
@@ -22,5 +22,5 @@
   },
   "readme": "ERROR: No README data found!",
   "_id": "@igloo15/base-angular-lib@0.2.0-dev.1",
-  "date": "Thu Mar 26 2020"
+  "date": "Mon Aug 17 2020"
 }

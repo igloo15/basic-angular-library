@@ -24,4 +24,4 @@ import { MaterialModule } from './modules/angular-material.module';
   entryComponents: [],
   exports: []
 })
-export class BaseTurnLibModule { }
+export class LibModule { }
